@@ -1,0 +1,21 @@
+{
+  "replace": false,
+  "values": [
+    "starfinder:white_space_suit",
+    "starfinder:orange_space_suit",
+    "starfinder:magenta_space_suit",
+    "starfinder:light_blue_space_suit",
+    "starfinder:yellow_space_suit",
+    "starfinder:lime_space_suit",
+    "starfinder:pink_space_suit",
+    "starfinder:gray_space_suit",
+    "starfinder:light_gray_space_suit",
+    "starfinder:cyan_space_suit",
+    "starfinder:purple_space_suit",
+    "starfinder:blue_space_suit",
+    "starfinder:brown_space_suit",
+    "starfinder:green_space_suit",
+    "starfinder:red_space_suit",
+    "starfinder:black_space_suit"
+  ]
+}
