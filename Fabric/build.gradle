@@ -16,6 +16,8 @@ dependencies {
     modImplementation libs.sparkweave.fabric
     modImplementation libs.resourcefulconfig.fabric
 
+    modImplementation fabric.trinkets
+
     modCompileOnly fabric.modmenu
     modLocalRuntime fabric.modmenu
 
@@ -56,12 +58,16 @@ repositories {
         url = "https://maven.teamresourceful.com/repository/maven-releases"
     }
     maven {
-        name "TerraformersMC"
-        url "https://maven.terraformersmc.com/releases"
+        name = "TerraformersMC"
+        url = "https://maven.terraformersmc.com/"
     }
     maven {
-        name "Modrinth"
-        url "https://api.modrinth.com/maven"
+        name = "Ladysnake Libs"
+        url = 'https://maven.ladysnake.org/releases'
+    }
+    maven {
+        name = "Modrinth"
+        url = "https://api.modrinth.com/maven"
         content {
             includeGroup "maven.modrinth"
         }
