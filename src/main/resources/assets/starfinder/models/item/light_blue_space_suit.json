@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "starfinder:item/light_blue_space_suit"
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "starfinder:item/black_space_helmet",
+    "layer1": "starfinder:item/tinted_visor"
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "starfinder:item/cyan_space_helmet",
+    "layer1": "starfinder:item/untinted_visor"
+  },
+  "overrides": [
+    {
+      "predicate": {
+        "starfinder:tinted_visor": 1
+      },
+      "model": "starfinder:item/cyan_space_helmet_tinted"
+    }
+  ]
+}

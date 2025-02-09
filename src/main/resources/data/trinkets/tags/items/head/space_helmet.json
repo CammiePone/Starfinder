@@ -1,0 +1,21 @@
+{
+  "replace": false,
+  "values": [
+    "starfinder:white_space_helmet",
+    "starfinder:orange_space_helmet",
+    "starfinder:magenta_space_helmet",
+    "starfinder:light_blue_space_helmet",
+    "starfinder:yellow_space_helmet",
+    "starfinder:lime_space_helmet",
+    "starfinder:pink_space_helmet",
+    "starfinder:gray_space_helmet",
+    "starfinder:light_gray_space_helmet",
+    "starfinder:cyan_space_helmet",
+    "starfinder:purple_space_helmet",
+    "starfinder:blue_space_helmet",
+    "starfinder:brown_space_helmet",
+    "starfinder:green_space_helmet",
+    "starfinder:red_space_helmet",
+    "starfinder:black_space_helmet"
+  ]
+}
