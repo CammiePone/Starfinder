@@ -2,7 +2,7 @@ package dev.cammiescorner.starfinder.client.models.entity.tech;
 
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
-import dev.cammiescorner.starfinder.fabric.entrypoints.FabricMain;
+import dev.cammiescorner.starfinder.Starfinder;
 import net.minecraft.client.model.EntityModel;
 import net.minecraft.client.model.geom.ModelLayerLocation;
 import net.minecraft.client.model.geom.ModelPart;
@@ -11,7 +11,7 @@ import net.minecraft.client.model.geom.builders.*;
 import net.minecraft.world.entity.Entity;
 
 public class FPVDroneModel extends EntityModel<Entity> {
-	public static final ModelLayerLocation MODEL_LAYER = new ModelLayerLocation(FabricMain.id("fpv_drone"), "main");
+	public static final ModelLayerLocation MODEL_LAYER = new ModelLayerLocation(Starfinder.id("fpv_drone"), "main");
 	public final ModelPart droneBody;
 	public final ModelPart camera;
 	public final ModelPart rotatingBall;

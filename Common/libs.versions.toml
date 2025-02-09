@@ -19,6 +19,7 @@ jetbrains_annotations = "25.0.0"
 # other dependencies
 sparkweave = "0.507.0" # https://www.curseforge.com/minecraft/mc-mods/sparkweave/files/all
 resourcefulconfig = "3.0.8" # https://www.curseforge.com/minecraft/mc-mods/resourceful-config/files/all
+common_network = "1.0.17-beta.2-1.21.1" # https://www.curseforge.com/minecraft/mc-mods/common-network/files/all
 emi = "1.1.19+1.21.1" # https://www.curseforge.com/minecraft/mc-mods/emi/files/all
 
 [libraries]
@@ -40,6 +41,10 @@ sparkweave_neoforge = { module = "dev.upcraft.sparkweave:Sparkweave-NeoForge", v
 resourcefulconfig = { module = "com.teamresourceful.resourcefulconfig:resourcefulconfig-common-1.21", version.ref = "resourcefulconfig" }
 resourcefulconfig_fabric = { module = "com.teamresourceful.resourcefulconfig:resourcefulconfig-fabric-1.21", version.ref = "resourcefulconfig" }
 resourcefulconfig_neoforge = { module = "com.teamresourceful.resourcefulconfig:resourcefulconfig-neoforge-1.21", version.ref = "resourcefulconfig" }
+
+common_network = { module = "mysticdrew:common-networking-common", version.ref = "common_network" }
+common_network_fabric = { module = "mysticdrew:common-networking-fabric", version.ref = "common_network" }
+common_network_neoforge = { module = "mysticdrew:common-networking-neoforge", version.ref = "common_network" }
 
 emi = { module = "dev.emi:emi-xplat-mojmap", version.ref = "emi" }
 emi_fabric = { module = "dev.emi:emi-fabric", version.ref = "emi" }

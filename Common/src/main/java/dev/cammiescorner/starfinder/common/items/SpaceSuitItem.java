@@ -1,21 +1,23 @@
-package dev.cammiescorner.starfinder.fabric.common.items;
+package dev.cammiescorner.starfinder.common.items;
 
 import dev.cammiescorner.starfinder.Starfinder;
-import dev.emi.trinkets.api.TrinketItem;
+import dev.cammiescorner.starfinder.common.data.TintedDataComponent;
+import dev.cammiescorner.starfinder.common.registry.StarfinderData;
 import net.minecraft.ChatFormatting;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.DyeColor;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TooltipFlag;
 
 import java.util.List;
 
-public class SpaceSuitItem extends TrinketItem {
+public class SpaceSuitItem extends Item {
 	private final DyeColor color;
 	private final SuitPiece piece;
 
 	public SpaceSuitItem(DyeColor color, SuitPiece piece) {
-		super(new Properties().stacksTo(1));
+		super(new Properties().stacksTo(1).component(StarfinderData.IS_TINTED.get(), TintedDataComponent.DEFAULT));
 		this.color = color;
 		this.piece = piece;
 	}
@@ -39,9 +41,11 @@ public class SpaceSuitItem extends TrinketItem {
 	}
 
 	public static boolean isTinted(ItemStack stack) {
-//		NbtCompound tag = stack.getSubNbt(FabricMain.MOD_ID);
-//		return tag != null && tag.getBoolean("Tinted");
-		return true;
+		return stack.getItem() instanceof SpaceSuitItem helmet && helmet.getType() == SuitPiece.HELMET && TintedDataComponent.get(stack).isTinted();
+	}
+
+	public static void toggleTinted(ItemStack stack, int slot) {
+
 	}
 
 	public enum SuitPiece {

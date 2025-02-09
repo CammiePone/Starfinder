@@ -11,6 +11,8 @@ dependencies {
 	compileOnly libs.sparkweave
 	compileOnly libs.resourcefulconfig
 
+	compileOnly libs.common.network
+
 	compileOnly "${libs.emi.asProvider().get()}:api"
 }
 

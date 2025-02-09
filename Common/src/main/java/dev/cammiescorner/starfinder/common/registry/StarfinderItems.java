@@ -1,7 +1,7 @@
-package dev.cammiescorner.starfinder.fabric.common.registry;
+package dev.cammiescorner.starfinder.common.registry;
 
 import dev.cammiescorner.starfinder.Starfinder;
-import dev.cammiescorner.starfinder.fabric.common.items.SpaceSuitItem;
+import dev.cammiescorner.starfinder.common.items.SpaceSuitItem;
 import dev.upcraft.sparkweave.api.registry.RegistryHandler;
 import dev.upcraft.sparkweave.api.registry.RegistrySupplier;
 import net.minecraft.core.registries.Registries;

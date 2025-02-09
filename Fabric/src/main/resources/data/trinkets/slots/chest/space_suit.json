@@ -1,3 +1,4 @@
 {
-  "icon": "starfinder:gui/slots/space_suit"
+  "icon": "starfinder:gui/slots/space_suit",
+  "drop_rule": "keep"
 }

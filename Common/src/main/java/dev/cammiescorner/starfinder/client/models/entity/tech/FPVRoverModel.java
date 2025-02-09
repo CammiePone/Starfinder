@@ -6,9 +6,8 @@ import dev.cammiescorner.starfinder.Starfinder;
 import net.minecraft.client.model.EntityModel;
 import net.minecraft.client.model.geom.ModelLayerLocation;
 import net.minecraft.client.model.geom.ModelPart;
-import net.minecraft.client.model.geom.builders.LayerDefinition;
-import net.minecraft.client.model.geom.builders.MeshDefinition;
-import net.minecraft.client.model.geom.builders.PartDefinition;
+import net.minecraft.client.model.geom.PartPose;
+import net.minecraft.client.model.geom.builders.*;
 import net.minecraft.world.entity.Entity;
 
 public class FPVRoverModel extends EntityModel<Entity> {
@@ -47,27 +46,27 @@ public class FPVRoverModel extends EntityModel<Entity> {
 		MeshDefinition meshDefinition = new MeshDefinition();
 		PartDefinition root = meshDefinition.getRoot();
 
-		PartDefinition body = root.addChild("body", ModelPartBuilder.create().uv(0, 0).cuboid(-12.0F, -12.0F, -21.0F, 24.0F, 9.0F, 42.0F, new Dilation(0.0F)).uv(14, 74).mirrored().cuboid(12.0F, -12.0F, -21.0F, 8.0F, 12.0F, 42.0F, new Dilation(0.0F)).mirrored(false).uv(114, 74).cuboid(-20.0F, -12.0F, -21.0F, 8.0F, 12.0F, 42.0F, new Dilation(0.0F)).uv(0, 24).cuboid(-8.0F, -16.0F, 12.0F, 6.0F, 4.0F, 6.0F, new Dilation(0.0F)).uv(0, 0).cuboid(-7.0F, -32.0F, 16.0F, 1.0F, 16.0F, 1.0F, new Dilation(0.0F)).uv(5, 0).cuboid(-4.0F, -25.0F, 13.0F, 1.0F, 9.0F, 1.0F, new Dilation(0.0F)), ModelTransform.pivot(0.0F, 24.0F, 0.0F));
+		PartDefinition body = root.addOrReplaceChild("body", CubeListBuilder.create().texOffs(0, 0).addBox(-12f, -12f, -21f, 24f, 9f, 42f, new CubeDeformation(0f)).texOffs(14, 74).mirror().addBox(12f, -12f, -21f, 8f, 12f, 42f, new CubeDeformation(0f)).mirror(false).texOffs(114, 74).addBox(-20f, -12f, -21f, 8f, 12f, 42f, new CubeDeformation(0f)).texOffs(0, 24).addBox(-8f, -16f, 12f, 6f, 4f, 6f, new CubeDeformation(0f)).texOffs(0, 0).addBox(-7f, -32f, 16f, 1f, 16f, 1f, new CubeDeformation(0f)).texOffs(5, 0).addBox(-4f, -25f, 13f, 1f, 9f, 1f, new CubeDeformation(0f)), PartPose.offset(0f, 24f, 0f));
 
-		PartDefinition frontWheels = body.addChild("frontWheels", ModelPartBuilder.create().uv(22, 26).mirrored().cuboid(18.1F, -4.0F, -4.0F, 2.0F, 8.0F, 8.0F, new Dilation(0.0F)).mirrored(false).uv(22, 26).cuboid(-20.1F, -4.0F, -4.0F, 2.0F, 8.0F, 8.0F, new Dilation(0.0F)), ModelTransform.pivot(0.0F, -6.0F, -15.0F));
-		PartDefinition backWheels = body.addChild("backWheels", ModelPartBuilder.create().uv(22, 26).mirrored().cuboid(18.1F, -4.0F, -4.0F, 2.0F, 8.0F, 8.0F, new Dilation(0.0F)).mirrored(false).uv(22, 26).cuboid(-20.1F, -4.0F, -4.0F, 2.0F, 8.0F, 8.0F, new Dilation(0.0F)), ModelTransform.pivot(0.0F, -6.0F, 15.0F));
-		PartDefinition middleWheels = body.addChild("middleWheels", ModelPartBuilder.create().uv(10, 34).mirrored().cuboid(18.1F, -2.0F, -2.0F, 2.0F, 4.0F, 4.0F, new Dilation(0.0F)).mirrored(false).uv(10, 34).cuboid(-20.1F, -2.0F, -2.0F, 2.0F, 4.0F, 4.0F, new Dilation(0.0F)), ModelTransform.pivot(0.0F, -4.0F, -2.0F));
+		PartDefinition frontWheels = body.addOrReplaceChild("frontWheels", CubeListBuilder.create().texOffs(22, 26).mirror().addBox(18.1f, -4f, -4f, 2f, 8f, 8f, new CubeDeformation(0f)).mirror(false).texOffs(22, 26).addBox(-20.1f, -4f, -4f, 2f, 8f, 8f, new CubeDeformation(0f)), PartPose.offset(0f, -6f, -15f));
+		PartDefinition backWheels = body.addOrReplaceChild("backWheels", CubeListBuilder.create().texOffs(22, 26).mirror().addBox(18.1f, -4f, -4f, 2f, 8f, 8f, new CubeDeformation(0f)).mirror(false).texOffs(22, 26).addBox(-20.1f, -4f, -4f, 2f, 8f, 8f, new CubeDeformation(0f)), PartPose.offset(0f, -6f, 15f));
+		PartDefinition middleWheels = body.addOrReplaceChild("middleWheels", CubeListBuilder.create().texOffs(10, 34).mirror().addBox(18.1f, -2f, -2f, 2f, 4f, 4f, new CubeDeformation(0f)).mirror(false).texOffs(10, 34).addBox(-20.1f, -2f, -2f, 2f, 4f, 4f, new CubeDeformation(0f)), PartPose.offset(0f, -4f, -2f));
 
-		PartDefinition toolBall = body.addChild("toolBall", ModelPartBuilder.create().uv(106, 30).cuboid(-3.0F, -3.0F, -3.0F, 6.0F, 6.0F, 6.0F, new Dilation(0.0F)), ModelTransform.pivot(0.0F, -11.5F, -18.5F));
-		PartDefinition toolPole = toolBall.addChild("toolPole", ModelPartBuilder.create().uv(131, 12).cuboid(-2.0F, -24.0F, -2.0F, 4.0F, 26.0F, 4.0F, new Dilation(0.0F)), ModelTransform.pivot(0.0F, -2.0F, 0.0F));
-		PartDefinition clawPole = toolPole.addChild("clawPole", ModelPartBuilder.create().uv(0, 55).cuboid(-1.0F, -1.0F, -27.0F, 2.0F, 2.0F, 26.0F, new Dilation(0.0F)).uv(106, 0).cuboid(-1.5F, -1.5F, -1.5F, 3.0F, 3.0F, 3.0F, new Dilation(0.0F)), ModelTransform.pivot(0.0F, -24.0F, 0.0F));
-		PartDefinition clawLeft = clawPole.addChild("clawLeft", ModelPartBuilder.create().uv(22, 0).mirrored().cuboid(-1.0F, 0.0F, -8.0F, 5.0F, 0.0F, 10.0F, new Dilation(0.0F)).mirrored(false), ModelTransform.pivot(1.0F, 0.0F, -26.0F));
-		PartDefinition clawRight = clawPole.addChild("clawRight", ModelPartBuilder.create().uv(22, 0).cuboid(-4.0F, 0.0F, -8.0F, 5.0F, 0.0F, 10.0F, new Dilation(0.0F)), ModelTransform.pivot(-1.0F, 0.0F, -26.0F));
+		PartDefinition toolBall = body.addOrReplaceChild("toolBall", CubeListBuilder.create().texOffs(106, 30).addBox(-3f, -3f, -3f, 6f, 6f, 6f, new CubeDeformation(0f)), PartPose.offset(0f, -11.5f, -18.5f));
+		PartDefinition toolPole = toolBall.addOrReplaceChild("toolPole", CubeListBuilder.create().texOffs(131, 12).addBox(-2f, -24f, -2f, 4f, 26f, 4f, new CubeDeformation(0f)), PartPose.offset(0f, -2f, 0f));
+		PartDefinition clawPole = toolPole.addOrReplaceChild("clawPole", CubeListBuilder.create().texOffs(0, 55).addBox(-1f, -1f, -27f, 2f, 2f, 26f, new CubeDeformation(0f)).texOffs(106, 0).addBox(-1.5f, -1.5f, -1.5f, 3f, 3f, 3f, new CubeDeformation(0f)), PartPose.offset(0f, -24f, 0f));
+		PartDefinition clawLeft = clawPole.addOrReplaceChild("clawLeft", CubeListBuilder.create().texOffs(22, 0).mirror().addBox(-1f, 0f, -8f, 5f, 0f, 10f, new CubeDeformation(0f)).mirror(false), PartPose.offset(1f, 0f, -26f));
+		PartDefinition clawRight = clawPole.addOrReplaceChild("clawRight", CubeListBuilder.create().texOffs(22, 0).addBox(-4f, 0f, -8f, 5f, 0f, 10f, new CubeDeformation(0f)), PartPose.offset(-1f, 0f, -26f));
 
-		PartDefinition drillPole = toolPole.addChild("drillPole", ModelPartBuilder.create().uv(0, 55).cuboid(-1.0F, -1.0F, -27.0F, 2.0F, 2.0F, 26.0F, new Dilation(0.0F)).uv(106, 0).cuboid(-1.5F, -1.5F, -1.5F, 3.0F, 3.0F, 3.0F, new Dilation(0.0F)), ModelTransform.pivot(0.0F, -24.0F, 0.0F));
-		PartDefinition drillMotor = drillPole.addChild("drillMotor", ModelPartBuilder.create().uv(0, 71).cuboid(-2.5F, -2.5F, -2.0F, 5.0F, 5.0F, 5.0F, new Dilation(0.0F)), ModelTransform.pivot(0.0F, 0.0F, -26.0F));
-		PartDefinition drillBlades = drillMotor.addChild("drillBlades", ModelPartBuilder.create().uv(0, 51).cuboid(-2.5F, -2.5F, -3.0F, 5.0F, 5.0F, 1.0F, new Dilation(0.0F)).uv(0, 62).cuboid(-1.5F, -1.5F, -5.0F, 3.0F, 3.0F, 1.0F, new Dilation(0.0F)).uv(0, 69).cuboid(-0.5F, -0.5F, -7.0F, 1.0F, 1.0F, 1.0F, new Dilation(0.0F)), ModelTransform.pivot(0.0F, 0.0F, 0.0F));
-		PartDefinition drillBlades2 = drillBlades.addChild("drillBlades2", ModelPartBuilder.create().uv(0, 66).cuboid(-1.0F, -1.0F, -6.0F, 2.0F, 2.0F, 1.0F, new Dilation(0.0F)).uv(0, 57).cuboid(-2.0F, -2.0F, -4.0F, 4.0F, 4.0F, 1.0F, new Dilation(0.0F)), ModelTransform.of(0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.7854F));
+		PartDefinition drillPole = toolPole.addOrReplaceChild("drillPole", CubeListBuilder.create().texOffs(0, 55).addBox(-1f, -1f, -27f, 2f, 2f, 26f, new CubeDeformation(0f)).texOffs(106, 0).addBox(-1.5f, -1.5f, -1.5f, 3f, 3f, 3f, new CubeDeformation(0f)), PartPose.offset(0f, -24f, 0f));
+		PartDefinition drillMotor = drillPole.addOrReplaceChild("drillMotor", CubeListBuilder.create().texOffs(0, 71).addBox(-2.5f, -2.5f, -2f, 5f, 5f, 5f, new CubeDeformation(0f)), PartPose.offset(0f, 0f, -26f));
+		PartDefinition drillBlades = drillMotor.addOrReplaceChild("drillBlades", CubeListBuilder.create().texOffs(0, 51).addBox(-2.5f, -2.5f, -3f, 5f, 5f, 1f, new CubeDeformation(0f)).texOffs(0, 62).addBox(-1.5f, -1.5f, -5f, 3f, 3f, 1f, new CubeDeformation(0f)).texOffs(0, 69).addBox(-0.5f, -0.5f, -7f, 1f, 1f, 1f, new CubeDeformation(0f)), PartPose.offset(0f, 0f, 0f));
+		PartDefinition drillBlades2 = drillBlades.addOrReplaceChild("drillBlades2", CubeListBuilder.create().texOffs(0, 66).addBox(-1f, -1f, -6f, 2f, 2f, 1f, new CubeDeformation(0f)).texOffs(0, 57).addBox(-2f, -2f, -4f, 4f, 4f, 1f, new CubeDeformation(0f)), PartPose.offsetAndRotation(0f, 0f, 0f, 0f, 0f, 0.7854f));
 
-		PartDefinition cameraBall = body.addChild("cameraBall", ModelPartBuilder.create().uv(106, 18).cuboid(-3.0F, -3.0F, -3.0F, 6.0F, 6.0F, 6.0F, new Dilation(0.0F)), ModelTransform.pivot(9.0F, -11.5F, 7.5F));
-		PartDefinition camPoleBase = cameraBall.addChild("camPoleBase", ModelPartBuilder.create().uv(131, 12).cuboid(-2.0F, -24.0F, -2.0F, 4.0F, 26.0F, 4.0F, new Dilation(0.0F)), ModelTransform.pivot(0.0F, -2.0F, 0.0F));
-		PartDefinition camPole = camPoleBase.addChild("camPole", ModelPartBuilder.create().uv(0, 55).cuboid(-1.0F, -1.0F, -27.0F, 2.0F, 2.0F, 26.0F, new Dilation(0.0F)).uv(106, 0).cuboid(-1.5F, -1.5F, -1.5F, 3.0F, 3.0F, 3.0F, new Dilation(0.0F)), ModelTransform.pivot(0.0F, -24.0F, 0.0F));
-		PartDefinition camera = camPole.addChild("camera", ModelPartBuilder.create().uv(16, 2).cuboid(-2.0F, -4.0F, -4.0F, 4.0F, 4.0F, 8.0F, new Dilation(0.0F)), ModelTransform.pivot(0.0F, 0.0F, -26.0F));
+		PartDefinition cameraBall = body.addOrReplaceChild("cameraBall", CubeListBuilder.create().texOffs(106, 18).addBox(-3f, -3f, -3f, 6f, 6f, 6f, new CubeDeformation(0f)), PartPose.offset(9f, -11.5f, 7.5f));
+		PartDefinition camPoleBase = cameraBall.addOrReplaceChild("camPoleBase", CubeListBuilder.create().texOffs(131, 12).addBox(-2f, -24f, -2f, 4f, 26f, 4f, new CubeDeformation(0f)), PartPose.offset(0f, -2f, 0f));
+		PartDefinition camPole = camPoleBase.addOrReplaceChild("camPole", CubeListBuilder.create().texOffs(0, 55).addBox(-1f, -1f, -27f, 2f, 2f, 26f, new CubeDeformation(0f)).texOffs(106, 0).addBox(-1.5f, -1.5f, -1.5f, 3f, 3f, 3f, new CubeDeformation(0f)), PartPose.offset(0f, -24f, 0f));
+		PartDefinition camera = camPole.addOrReplaceChild("camera", CubeListBuilder.create().texOffs(16, 2).addBox(-2f, -4f, -4f, 4f, 4f, 8f, new CubeDeformation(0f)), PartPose.offset(0f, 0f, -26f));
 
 		return LayerDefinition.create(meshDefinition, 256, 128);
 	}

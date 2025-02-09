@@ -55,12 +55,16 @@ dependencyResolutionManagement {
             url = "https://maven.teamresourceful.com/repository/maven-releases"
         }
         maven {
-            name "TerraformersMC"
-            url "https://maven.terraformersmc.com/releases"
+            name = "gserv"
+            url = "https://jm.gserv.me/repository/maven-public/"
         }
         maven {
-            name "Modrinth"
-            url "https://api.modrinth.com/maven"
+            name = "TerraformersMC"
+            url = "https://maven.terraformersmc.com/releases"
+        }
+        maven {
+            name = "Modrinth"
+            url = "https://api.modrinth.com/maven"
             content {
                 includeGroup "maven.modrinth"
             }

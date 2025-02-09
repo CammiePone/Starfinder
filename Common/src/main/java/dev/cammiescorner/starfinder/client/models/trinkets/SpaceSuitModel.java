@@ -1,11 +1,12 @@
 package dev.cammiescorner.starfinder.client.models.trinkets;
 
 import dev.cammiescorner.starfinder.Starfinder;
-import dev.cammiescorner.starfinder.fabric.entrypoints.FabricMain;
 import net.minecraft.client.model.HumanoidModel;
 import net.minecraft.client.model.geom.ModelLayerLocation;
 import net.minecraft.client.model.geom.ModelPart;
-import net.minecraft.client.model.geom.builders.LayerDefinition;
+import net.minecraft.client.model.geom.PartNames;
+import net.minecraft.client.model.geom.PartPose;
+import net.minecraft.client.model.geom.builders.*;
 import net.minecraft.world.entity.LivingEntity;
 
 public class SpaceSuitModel<T extends LivingEntity> extends HumanoidModel<T> {
@@ -34,28 +35,28 @@ public class SpaceSuitModel<T extends LivingEntity> extends HumanoidModel<T> {
 	}
 
 	public static LayerDefinition getTexturedModelData() {
-		ModelData data = BipedEntityModel.getModelData(Dilation.NONE, 0);
-		ModelPartData head = data.getRoot().getChild(EntityModelPartNames.HEAD);
-		ModelPartData body = data.getRoot().getChild(EntityModelPartNames.BODY);
-		ModelPartData rightArm = data.getRoot().getChild(EntityModelPartNames.RIGHT_ARM);
-		ModelPartData leftArm = data.getRoot().getChild(EntityModelPartNames.LEFT_ARM);
-		ModelPartData rightLeg = data.getRoot().getChild(EntityModelPartNames.RIGHT_LEG);
-		ModelPartData leftLeg = data.getRoot().getChild(EntityModelPartNames.LEFT_LEG);
+		MeshDefinition data = HumanoidModel.createMesh(CubeDeformation.NONE, 0);
+		PartDefinition head = data.getRoot().getChild(PartNames.HEAD);
+		PartDefinition body = data.getRoot().getChild(PartNames.BODY);
+		PartDefinition rightArm = data.getRoot().getChild(PartNames.RIGHT_ARM);
+		PartDefinition leftArm = data.getRoot().getChild(PartNames.LEFT_ARM);
+		PartDefinition rightLeg = data.getRoot().getChild(PartNames.RIGHT_LEG);
+		PartDefinition leftLeg = data.getRoot().getChild(PartNames.LEFT_LEG);
 
-		ModelPartData helmet = head.addChild("helmet", ModelPartBuilder.create().uv(64, 0).cuboid(-4.0F, -8.0F, -4.0F, 8.0F, 8.0F, 8.0F, new Dilation(0.9F)).uv(96, 0).cuboid(-4.0F, -8.0F, -4.0F, 8.0F, 8.0F, 8.0F, new Dilation(0.6F)), ModelTransform.pivot(0.0F, 0.0F, 0.0F));
+		PartDefinition helmet = head.addOrReplaceChild("helmet", CubeListBuilder.create().texOffs(64, 0).addBox(-4f, -8f, -4f, 8f, 8f, 8f, new CubeDeformation(0.9f)).texOffs(96, 0).addBox(-4f, -8f, -4f, 8f, 8f, 8f, new CubeDeformation(0.6f)), PartPose.offset(0f, 0f, 0f));
 
-		ModelPartData leftSleeve = leftArm.addChild("leftSleeve", ModelPartBuilder.create().uv(112, 16).cuboid(-1F, -2.0F, -2.0F, 4.0F, 12.0F, 4.0F, new Dilation(0.4F)), ModelTransform.pivot(0.0F, 0.0F, 0.0F));
-		ModelPartData rightSleeve = rightArm.addChild("rightSleeve", ModelPartBuilder.create().uv(64, 16).cuboid(-3.0F, -2.0F, -2.0F, 4.0F, 12.0F, 4.0F, new Dilation(0.4F)), ModelTransform.pivot(0.0F, 0.0F, 0.0F));
+		PartDefinition leftSleeve = leftArm.addOrReplaceChild("leftSleeve", CubeListBuilder.create().texOffs(112, 16).addBox(-1f, -2f, -2f, 4f, 12f, 4f, new CubeDeformation(0.4f)), PartPose.offset(0f, 0f, 0f));
+		PartDefinition rightSleeve = rightArm.addOrReplaceChild("rightSleeve", CubeListBuilder.create().texOffs(64, 16).addBox(-3f, -2f, -2f, 4f, 12f, 4f, new CubeDeformation(0.4f)), PartPose.offset(0f, 0f, 0f));
 
-		ModelPartData torso = body.addChild("torso", ModelPartBuilder.create().uv(80, 16).cuboid(-4.0F, 0.0F, -2.0F, 8.0F, 12.0F, 4.0F, new Dilation(0.6F)), ModelTransform.pivot(0.0F, 0.0F, 0.0F));
-		ModelPartData backpack = body.addChild("backpack", ModelPartBuilder.create().uv(80, 48).cuboid(-4.5F, 0.0F, 2.0F, 9.0F, 11.0F, 4.0F, new Dilation(0.0F)), ModelTransform.pivot(0.0F, 0.0F, 0.0F));
+		PartDefinition torso = body.addOrReplaceChild("torso", CubeListBuilder.create().texOffs(80, 16).addBox(-4f, 0f, -2f, 8f, 12f, 4f, new CubeDeformation(0.6f)), PartPose.offset(0f, 0f, 0f));
+		PartDefinition backpack = body.addOrReplaceChild("backpack", CubeListBuilder.create().texOffs(80, 48).addBox(-4.5f, 0f, 2f, 9f, 11f, 4f, new CubeDeformation(0f)), PartPose.offset(0f, 0f, 0f));
 
-		ModelPartData leftPant = leftLeg.addChild("leftPant", ModelPartBuilder.create().uv(112, 32).cuboid(-2.0F, 0.0F, -2.0F, 4.0F, 12.0F, 4.0F, new Dilation(0.4F)), ModelTransform.pivot(0.0F, 0.0F, 0.0F));
-		ModelPartData rightPant = rightLeg.addChild("rightPant", ModelPartBuilder.create().uv(64, 32).cuboid(-2.0F, 0.0F, -2.0F, 4.0F, 12.0F, 4.0F, new Dilation(0.4F)), ModelTransform.pivot(0.0F, 0.0F, 0.0F));
+		PartDefinition leftPant = leftLeg.addOrReplaceChild("leftPant", CubeListBuilder.create().texOffs(112, 32).addBox(-2f, 0f, -2f, 4f, 12f, 4f, new CubeDeformation(0.4f)), PartPose.offset(0f, 0f, 0f));
+		PartDefinition rightPant = rightLeg.addOrReplaceChild("rightPant", CubeListBuilder.create().texOffs(64, 32).addBox(-2f, 0f, -2f, 4f, 12f, 4f, new CubeDeformation(0.4f)), PartPose.offset(0f, 0f, 0f));
 
-		ModelPartData leftBoot = leftLeg.addChild("leftBoot", ModelPartBuilder.create().uv(96, 32).cuboid(-2.0F, 0.0F, -2.0F, 4.0F, 12.0F, 4.0F, new Dilation(0.6F)), ModelTransform.pivot(0.0F, 0.0F, 0.0F));
-		ModelPartData rightBoot = rightLeg.addChild("rightBoot", ModelPartBuilder.create().uv(80, 32).cuboid(-2.0F, 0.0F, -2.0F, 4.0F, 12.0F, 4.0F, new Dilation(0.6F)), ModelTransform.pivot(0.0F, 0.0F, 0.0F));
+		PartDefinition leftBoot = leftLeg.addOrReplaceChild("leftBoot", CubeListBuilder.create().texOffs(96, 32).addBox(-2f, 0f, -2f, 4f, 12f, 4f, new CubeDeformation(0.6f)), PartPose.offset(0f, 0f, 0f));
+		PartDefinition rightBoot = rightLeg.addOrReplaceChild("rightBoot", CubeListBuilder.create().texOffs(80, 32).addBox(-2f, 0f, -2f, 4f, 12f, 4f, new CubeDeformation(0.6f)), PartPose.offset(0f, 0f, 0f));
 
-		return LayerDefinition.of(data, 128, 64);
+		return LayerDefinition.create(data, 128, 64);
 	}
 }

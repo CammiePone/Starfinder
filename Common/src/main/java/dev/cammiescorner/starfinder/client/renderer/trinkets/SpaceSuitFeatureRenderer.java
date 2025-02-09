@@ -3,8 +3,8 @@ package dev.cammiescorner.starfinder.client.renderer.trinkets;
 import com.mojang.blaze3d.vertex.PoseStack;
 import dev.cammiescorner.starfinder.Starfinder;
 import dev.cammiescorner.starfinder.client.models.trinkets.SpaceSuitModel;
-import dev.cammiescorner.starfinder.fabric.common.items.SpaceSuitItem;
-import dev.cammiescorner.starfinder.fabric.entrypoints.FabricMain;
+import dev.cammiescorner.starfinder.common.MainHelper;
+import dev.cammiescorner.starfinder.common.items.SpaceSuitItem;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.model.EntityModel;
 import net.minecraft.client.renderer.MultiBufferSource;
@@ -22,19 +22,17 @@ public class SpaceSuitFeatureRenderer<T extends LivingEntity, M extends EntityMo
 	private static final ResourceLocation VISOR_OVERLAY = Starfinder.id("textures/entity/spacesuit/untinted_visor.png");
 	private static final ResourceLocation TINTED_VISOR_OVERLAY = Starfinder.id("textures/entity/spacesuit/tinted_visor.png");
 	private final Minecraft client = Minecraft.getInstance();
-	private SpaceSuitModel<T> model;
+	private final SpaceSuitModel<T> model;
 
 	public SpaceSuitFeatureRenderer(RenderLayerParent<T, M> context) {
 		super(context);
+		model = new SpaceSuitModel<>(client.getEntityModels().bakeLayer(SpaceSuitModel.MODEL_LAYER));
 	}
 
 	@Override
 	public void render(PoseStack poseStack, MultiBufferSource bufferSource, int packedLight, T livingEntity, float limbSwing, float limbSwingAmount, float partialTick, float ageInTicks, float netHeadYaw, float headpitch) {
-		ItemStack helmetStack = FabricMain.getSpaceHelmet(livingEntity);
-		ItemStack suitStack = FabricMain.getSpaceSuit(livingEntity);
-
-		if(model == null)
-			model = new SpaceSuitModel<T>(client.getEntityModels().bakeLayer(SpaceSuitModel.MODEL_LAYER));
+		ItemStack helmetStack = MainHelper.getSpaceHelmet(livingEntity);
+		ItemStack suitStack = MainHelper.getSpaceSuit(livingEntity);
 
 		model.setAllVisible(true);
 		getParentModel().copyPropertiesTo(model);
@@ -54,9 +52,8 @@ public class SpaceSuitFeatureRenderer<T extends LivingEntity, M extends EntityMo
 			model.leftBoot.visible = false;
 			model.rightBoot.visible = false;
 
-			model.renderToBuffer(poseStack, bufferSource.getBuffer(RenderType.entityTranslucent(texture)), packedLight, OverlayTexture.NO_OVERLAY, 0xffffff);
-			model.renderToBuffer(poseStack, bufferSource.getBuffer(RenderType.entityTranslucent(texture)), packedLight, OverlayTexture.NO_OVERLAY, 0xffffff);
-			model.renderToBuffer(poseStack, bufferSource.getBuffer(RenderType.entityTranslucent(SpaceSuitItem.isTinted(helmetStack) ? TINTED_VISOR_OVERLAY : VISOR_OVERLAY)), packedLight, OverlayTexture.NO_OVERLAY, 0xffffff);
+			model.renderToBuffer(poseStack, bufferSource.getBuffer(RenderType.entityTranslucent(texture)), packedLight, OverlayTexture.NO_OVERLAY, 0xffffffff);
+			model.renderToBuffer(poseStack, bufferSource.getBuffer(RenderType.entityTranslucent(SpaceSuitItem.isTinted(helmetStack) ? TINTED_VISOR_OVERLAY : VISOR_OVERLAY)), packedLight, OverlayTexture.NO_OVERLAY, 0xffffffff);
 		}
 
 		if(suitStack.getItem() instanceof SpaceSuitItem spaceSuit) {
@@ -73,7 +70,7 @@ public class SpaceSuitFeatureRenderer<T extends LivingEntity, M extends EntityMo
 			model.leftBoot.visible = true;
 			model.rightBoot.visible = true;
 
-			model.renderToBuffer(poseStack, bufferSource.getBuffer(RenderType.entityTranslucent(texture)), packedLight, OverlayTexture.NO_OVERLAY, 0xffffff);
+			model.renderToBuffer(poseStack, bufferSource.getBuffer(RenderType.entityTranslucent(texture)), packedLight, OverlayTexture.NO_OVERLAY, 0xffffffff);
 		}
 	}
 }

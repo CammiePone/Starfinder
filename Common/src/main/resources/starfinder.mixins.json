@@ -5,15 +5,13 @@
 	"compatibilityLevel": "JAVA_17",
 	"mixins": [
 		"EntityMixin",
-		"PlayerEntityMixin",
-		"ScreenHandlerMixin"
+		"PlayerMixin"
 	],
 	"client": [
-		"client.AbstractClientPlayerEntityMixin",
-		"client.InGameHudMixin",
+		"client.GuiMixin",
 		"client.LivingEntityRendererMixin",
-		"client.PlayerEntityRendererMixin",
-		"client.SubtitlesHudMixin"
+		"client.PlayerRendererMixin",
+		"client.SubtitleOverlayMixin"
 	],
 	"injectors": {
 		"defaultRequire": 1
