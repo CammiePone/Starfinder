@@ -37,7 +37,7 @@ public class FPVRoverEntityRenderer extends EntityRenderer<FPVRoverEntity> {
 		model.camera.xRot = (float) Math.toRadians(40);
 		model.drillBlades.zRot += (float) Math.toRadians(10);
 
-		model.renderToBuffer(poseStack, bufferSource.getBuffer(RenderType.entityTranslucent(TEXTURE)), packedLight, OverlayTexture.NO_OVERLAY, 0xffffff);
+		model.renderToBuffer(poseStack, bufferSource.getBuffer(RenderType.entityTranslucent(TEXTURE)), packedLight, OverlayTexture.NO_OVERLAY, 0xffffffff);
 		poseStack.popPose();
 	}
 

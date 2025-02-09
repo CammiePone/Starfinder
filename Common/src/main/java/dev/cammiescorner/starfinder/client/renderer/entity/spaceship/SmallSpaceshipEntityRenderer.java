@@ -28,7 +28,7 @@ public class SmallSpaceshipEntityRenderer extends EntityRenderer<SmallSpaceshipE
 		poseStack.translate(0f, 1.5f, 0f);
 		poseStack.mulPose(Axis.XP.rotationDegrees(180));
 		poseStack.mulPose(Axis.YP.rotationDegrees(entityYaw));
-		model.renderToBuffer(poseStack, bufferSource.getBuffer(RenderType.entityTranslucent(TEXTURE)), packedLight, OverlayTexture.NO_OVERLAY, 0xffffff);
+		model.renderToBuffer(poseStack, bufferSource.getBuffer(RenderType.entityTranslucent(TEXTURE)), packedLight, OverlayTexture.NO_OVERLAY, 0xffffffff);
 		poseStack.popPose();
 	}
 
