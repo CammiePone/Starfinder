@@ -2,7 +2,7 @@ package dev.cammiescorner.starfinder.common.data;
 
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
-import dev.cammiescorner.starfinder.common.registry.StarfinderData;
+import dev.cammiescorner.starfinder.common.registries.StarfinderData;
 import net.minecraft.network.RegistryFriendlyByteBuf;
 import net.minecraft.network.codec.StreamCodec;
 import net.minecraft.world.item.ItemStack;

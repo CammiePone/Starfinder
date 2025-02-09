@@ -1,4 +1,4 @@
-package dev.cammiescorner.starfinder.common.registry;
+package dev.cammiescorner.starfinder.common.registries;
 
 import dev.cammiescorner.starfinder.Starfinder;
 import dev.cammiescorner.starfinder.common.entities.SmallSpaceshipEntity;

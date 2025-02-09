@@ -2,7 +2,7 @@ package dev.cammiescorner.starfinder.common.items;
 
 import dev.cammiescorner.starfinder.Starfinder;
 import dev.cammiescorner.starfinder.common.data.TintedDataComponent;
-import dev.cammiescorner.starfinder.common.registry.StarfinderData;
+import dev.cammiescorner.starfinder.common.registries.StarfinderData;
 import net.minecraft.ChatFormatting;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.DyeColor;

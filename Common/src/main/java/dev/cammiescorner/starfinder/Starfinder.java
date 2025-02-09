@@ -3,9 +3,10 @@ package dev.cammiescorner.starfinder;
 import com.teamresourceful.resourcefulconfig.api.loader.Configurator;
 import commonnetwork.api.Network;
 import dev.cammiescorner.starfinder.common.networking.serverbound.ServerboundTintHelmetPacket;
-import dev.cammiescorner.starfinder.common.registry.StarfinderData;
-import dev.cammiescorner.starfinder.common.registry.StarfinderEntities;
-import dev.cammiescorner.starfinder.common.registry.StarfinderItems;
+import dev.cammiescorner.starfinder.common.registries.StarfinderCreativeTabs;
+import dev.cammiescorner.starfinder.common.registries.StarfinderData;
+import dev.cammiescorner.starfinder.common.registries.StarfinderEntities;
+import dev.cammiescorner.starfinder.common.registries.StarfinderItems;
 import dev.upcraft.sparkweave.api.entrypoint.MainEntryPoint;
 import dev.upcraft.sparkweave.api.platform.ModContainer;
 import dev.upcraft.sparkweave.api.platform.services.RegistryService;
@@ -25,6 +26,7 @@ public class Starfinder implements MainEntryPoint {
         StarfinderData.DATA_COMPONENTS.accept(registryService);
         StarfinderItems.ITEMS.accept(registryService);
         StarfinderEntities.ENTITY_TYPES.accept(registryService);
+        StarfinderCreativeTabs.CREATIVE_TABS.accept(registryService);
 
         Network.registerPacket(ServerboundTintHelmetPacket.TYPE, ServerboundTintHelmetPacket.class, ServerboundTintHelmetPacket.CODEC, ServerboundTintHelmetPacket::handle);
     }

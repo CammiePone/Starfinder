@@ -11,9 +11,9 @@ import dev.cammiescorner.starfinder.client.renderer.entity.tech.FPVRoverEntityRe
 import dev.cammiescorner.starfinder.common.data.TintedDataComponent;
 import dev.cammiescorner.starfinder.common.items.SpaceSuitItem;
 import dev.cammiescorner.starfinder.common.networking.serverbound.ServerboundTintHelmetPacket;
-import dev.cammiescorner.starfinder.common.registry.StarfinderData;
-import dev.cammiescorner.starfinder.common.registry.StarfinderEntities;
-import dev.cammiescorner.starfinder.common.registry.StarfinderItems;
+import dev.cammiescorner.starfinder.common.registries.StarfinderData;
+import dev.cammiescorner.starfinder.common.registries.StarfinderEntities;
+import dev.cammiescorner.starfinder.common.registries.StarfinderItems;
 import dev.upcraft.sparkweave.api.client.event.RegisterEntityRenderersEvent;
 import dev.upcraft.sparkweave.api.client.event.RegisterItemPropertiesEvent;
 import dev.upcraft.sparkweave.api.client.event.RegisterLayerDefinitionsEvent;

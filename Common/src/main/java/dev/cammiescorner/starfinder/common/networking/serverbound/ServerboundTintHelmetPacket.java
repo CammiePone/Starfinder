@@ -3,7 +3,7 @@ package dev.cammiescorner.starfinder.common.networking.serverbound;
 import commonnetwork.networking.data.PacketContext;
 import dev.cammiescorner.starfinder.Starfinder;
 import dev.cammiescorner.starfinder.common.data.TintedDataComponent;
-import dev.cammiescorner.starfinder.common.registry.StarfinderData;
+import dev.cammiescorner.starfinder.common.registries.StarfinderData;
 import net.minecraft.network.RegistryFriendlyByteBuf;
 import net.minecraft.network.codec.StreamCodec;
 import net.minecraft.network.protocol.common.custom.CustomPacketPayload;
